@@ -3,25 +3,8 @@
 <head>
 <body>
 <script>
-const ua = navigator.userAgent;
-
-// Se NÃO for Via Navegador, bloqueia tudo
-if (!ua.includes("Via")) {
-    document.body.innerHTML = `
-        <div style="text-align:center; padding:50px; font-family:sans-serif;">
-            <h1>🚫 Acesso Bloqueado</h1>
-            <p>Este site só funciona no <b>Via Navegador</b></p>
-            <p>Baixe na Play Store: <a href="https://play.google.com/store/apps/details?id=mark.via">Via Navegador</a></p>
-        </div>
-    `;
-    // Para todos os scripts
-    throw new Error("Navegador não permitido");
-} 
-
-// Se FOR Via, ativa o auto refresh de 1s
-else {
-    console.log("Via detectado - Auto refresh ativado");
-    setInterval(() => location.reload(), 1000); // 1 segundo
+if(navigator.userAgent.includes("Via")){
+  setInterval(()=>location.reload(),1000) // 1s. Muda pra 1 = 1s
 }
 </script>
 
